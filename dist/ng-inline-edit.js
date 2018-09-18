@@ -218,16 +218,64 @@
                                     'placeholder="{{placeholder}}" />');
                             }
                         } else {
-                            input = angular.element(
-                                (scope.isInputTextarea ?
-                                    '<textarea ' : '<input type="text" ') +
-                                'class="ng-inline-edit__input" ' +
-                                'ng-disabled="validating" ' +
-                                'ng-show="editMode" ' +
-                                'ng-keyup="onInputKeyup($event)" ' +
-                                'ng-model="inputValue" ' +
-                                'no-special-characters ' +
-                                'placeholder="{{placeholder}}" />');
+                            if(attrs.hasOwnProperty("validateValue")) {
+                                if (attrs.inputValueType === "gender") {
+                                    input = angular.element(
+                                        (scope.isInputTextarea ?
+                                            '<textarea ' : '<input type="text" ') +
+                                        'class="ng-inline-edit__input" ' +
+                                        'id = "gender"' +
+                                        'ng-disabled="validating" ' +
+                                        'ng-show="editMode" ' +
+                                        'ng-keyup="onInputKeyup($event);" ' +
+                                        'ng-model="inputValue" ' +
+                                        'no-special-characters ' +
+                                        'validate-current-value="' + attrs.validateValue + '"' +
+                                        'placeholder="{{placeholder}}" />');
+                                } else if (attrs.inputValueType === "rfc") {
+
+                                    input = angular.element(
+                                        (scope.isInputTextarea ?
+                                            '<textarea ' : '<input type="text" ') +
+                                        'class="ng-inline-edit__input" ' +
+                                        'id = "rfc"' +
+                                        'ng-disabled="validating" ' +
+                                        'ng-show="editMode" ' +
+                                        'ng-keyup="onInputKeyup($event);" ' +
+                                        'ng-model="inputValue" ' +
+                                        'no-special-characters ' +
+                                        'validate-current-value="' + attrs.validateValue + '"' +
+                                        'placeholder="{{placeholder}}" />');
+
+                                } else if (attrs.inputValueType = 'curp') {
+
+                                    input = angular.element(
+                                        (scope.isInputTextarea ?
+                                            '<textarea ' : '<input type="text" ') +
+                                        'class="ng-inline-edit__input" ' +
+                                        'id = "curp"' +
+                                        'ng-disabled="validating" ' +
+                                        'ng-show="editMode" ' +
+                                        'ng-keyup="onInputKeyup($event);" ' +
+                                        'ng-model="inputValue" ' +
+                                        'no-special-characters ' +
+                                        'validate-current-value="' + attrs.validateValue + '"' +
+                                        'placeholder="{{placeholder}}" />');
+                                }
+
+                            } else {
+                                input = angular.element(
+                                    (scope.isInputTextarea ?
+                                        '<textarea ' : '<input type="text" ') +
+                                    'class="ng-inline-edit__input" ' +
+                                    'ng-disabled="validating" ' +
+                                    'ng-show="editMode" ' +
+                                    'ng-keyup="onInputKeyup($event)" ' +
+                                    'ng-model="inputValue" ' +
+                                    'no-special-characters ' +
+                                    'placeholder="{{placeholder}}" />');
+                            }
+
                         }
 
                         var innerContainer = angular.element(
