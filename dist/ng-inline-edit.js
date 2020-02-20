@@ -272,7 +272,6 @@
                                     'ng-show="editMode" ' +
                                     'ng-keyup="onInputKeyup($event)" ' +
                                     'ng-model="inputValue" ' +
-                                    'no-special-characters ' +
                                     'placeholder="{{placeholder}}" />');
                             }
 
